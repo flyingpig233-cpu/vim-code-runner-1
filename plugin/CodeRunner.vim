@@ -215,6 +215,7 @@ function! s:CodeRunner()
     " endif
     let s = "FloatermNew echo \"" .cmd . "\"" . "| sh"
     echo s
+    exec s
 endfunction
 " }}}
 
