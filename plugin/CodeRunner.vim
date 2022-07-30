@@ -208,14 +208,11 @@ function! s:CodeRunner()
     let winName = "CodeRunner.out"
     let options= {"cwd":getcwd(),"term_rows":g:code_runner_output_window_size, "term_name":winName}
 
-    " if has('nvim')
-        " exec "belowright ".g:code_runner_output_window_size."sp ".winName." | terminal ".cmd
-    " else
-        " exec "belowright terminal ++shell ++rows=".g:code_runner_output_window_size." ".cmd
-    " endif
-    let s = "FloatermNew echo \"" .cmd . "\"" . "| sh"
-    echo s
-    exec s
+    if has('nvim')
+        exec "belowright ".g:code_runner_output_window_size."sp ".winName." | terminal ".cmd
+    else
+        exec "belowright terminal ++shell ++rows=".g:code_runner_output_window_size." ".cmd
+    endif
 endfunction
 " }}}
 
