@@ -213,7 +213,7 @@ function! s:CodeRunner()
     " else
         " exec "belowright terminal ++shell ++rows=".g:code_runner_output_window_size." ".cmd
     " endif
-    exec "FloatermNew " .cmd
+    exec "FloatermNew echo \"" .cmd . "\"" . "| sh"
 endfunction
 " }}}
 
